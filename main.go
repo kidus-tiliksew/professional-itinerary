@@ -12,9 +12,6 @@ func main() {
 	e := echo.New()
 	e.Logger.SetLevel(log.INFO)
 
-	e.GET("/", func(c echo.Context) error {
-		return c.String(http.StatusOK, "Hello, World!")
-	})
 	e.POST("/itinerary", func(c echo.Context) error {
 		// Parse the request body into a slice of slices of strings
 		var tickets [][]string
@@ -31,5 +28,6 @@ func main() {
 
 		return c.JSON(http.StatusOK, i)
 	})
+	
 	e.Logger.Fatal(e.Start(":8080"))
 }
