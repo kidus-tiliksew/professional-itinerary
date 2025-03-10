@@ -20,14 +20,14 @@ func main() {
 		}
 
 		// Create the itinerary
-		i, err := itinerary.ItineraryFromTickets(tickets)
+		itinerary, err := itinerary.ItineraryFromTickets(tickets)
 		if err != nil {
 			c.Logger().Warn("failed to create itinerary: ", err, "input: ", tickets)
 			return c.JSON(http.StatusBadRequest, err.Error())
 		}
 
-		return c.JSON(http.StatusOK, i)
+		return c.JSON(http.StatusOK, itinerary)
 	})
-	
+
 	e.Logger.Fatal(e.Start(":8080"))
 }
