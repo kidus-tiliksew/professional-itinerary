@@ -32,7 +32,7 @@ func ItineraryFromTickets(tickets [][]string) ([]string, error) {
 		}
 	}
 
-	// If no clear starting point, use any location that has fewer incoming than outgoing edges
+	// If no clear starting point, use any location
 	if len(startingPoints) == 0 {
 		// This could be a circular path - pick any node
 		startingPoints = append(startingPoints, tickets[0][0])
